@@ -1,0 +1,30 @@
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 480px;
+}
+
+
+body {
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.link {
+    color: inherit;
+}
+
+button {
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #fff;
+    padding: 14 36 12 36;
+    text-transform: uppercase;
+}

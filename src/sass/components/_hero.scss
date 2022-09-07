@@ -1,0 +1,63 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteiner-hero {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/Hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 230px;
+    padding: 40px 20px 62px 20px;
+}
+
+.conteiner-links {
+    display: inline-block;
+    margin-left: auto;
+}
+
+.icon-hero {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.conteiner-hero_img {
+    display: flex;
+    align-items: center;
+}
+
+.conteiner-list {
+    display: flex;
+    text-transform: uppercase;
+    grid-gap: 39px;
+}
+
+.conteiner-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    grid-gap: 20px;
+}
+
+.btn {
+    width: 129px;
+    background-color: rgba($color: #000000, $alpha: 0);
+    line-height: 16px;
+    font-weight: 500;
+}
+
+.active {
+    background: #FF6B01;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    outline: none;
+    border: none;
+}
+
+.current {
+    text-decoration: 2px solid red underline;
+}
