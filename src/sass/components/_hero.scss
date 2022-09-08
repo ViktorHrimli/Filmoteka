@@ -13,10 +13,28 @@
     background-position: center;
     height: 230px;
     padding: 40px 20px 62px 20px;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)), url(../images/HerTab.jpg);
+        height: 219px;
+        padding: 40px 32px 60px 31px;
+    }
+}
+
+.hero--title {
+    display: none;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        display: inline;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 35px;
+        margin-left: 12px;
+    }
 }
 
 .conteiner-links {
-    display: inline-block;
     margin-left: auto;
 }
 
@@ -42,6 +60,11 @@
     justify-content: center;
     margin-top: 55px;
     grid-gap: 20px;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        grid-gap: 32px;
+        margin-top: 40px;
+    }
 }
 
 .btn {
@@ -49,6 +72,10 @@
     background-color: rgba($color: #000000, $alpha: 0);
     line-height: 16px;
     font-weight: 500;
+
+    @media screen and (min-width:768px) {
+        width: 152px;
+    }
 }
 
 .active {

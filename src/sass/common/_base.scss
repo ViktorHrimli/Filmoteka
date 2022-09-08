@@ -3,6 +3,11 @@
     flex-direction: column;
     min-width: 320px;
     max-width: 480px;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        min-width: 768px;
+        max-width: 1279px;
+    }
 }
 
 
@@ -27,4 +32,8 @@ button {
     color: #fff;
     padding: 14 36 12 36;
     text-transform: uppercase;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        padding: 13px 46px 13px 46px;
+    }
 }
