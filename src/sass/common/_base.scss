@@ -8,6 +8,10 @@
         min-width: 768px;
         max-width: 1279px;
     }
+
+    @media screen and (min-width:1280px) {
+        min-width: 1280px;
+    }
 }
 
 
@@ -35,5 +39,9 @@ button {
 
     @media screen and (min-width:768px) and (max-width:1279px) {
         padding: 13px 46px 13px 46px;
+    }
+
+    @media screen and (min-width:1280px) {
+        padding: 13px 41px 13px 41px;
     }
 }
