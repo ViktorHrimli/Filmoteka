@@ -9,3 +9,7 @@ export async function createResponseTitleTrend() {
 export async function getIdsGenres() {
   return await axios.get(`genre/movie/list?api_key=${KEY}&language=en-US`);
 }
+
+export async function getIdMovies(query) {
+  return await axios.get(`movie/{${query}}?api_key=${KEY}`);
+}

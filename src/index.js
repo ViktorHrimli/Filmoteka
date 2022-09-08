@@ -1,16 +1,33 @@
-import { createResponseTitleTrend, getIdsGenres } from './js/mainCreateRes';
+import {
+  createResponseTitleTrend,
+  getIdsGenres,
+  getIdMovies,
+} from './js/mainCreateRes';
 import { renderTrendTitle } from './js/renderTrendTitle';
 import { refs } from './js/refs';
 let genr;
-getIdsGenres().then(({ data }) => {
-  return (genr = data.genres);
-});
+Promise.all([createResponseTitleTrend(), getIdsGenres()]).then(
+  ([
+    {
+      data: { results },
+    },
+    {
+      data: { genres },
+    },
+  ]) => {
+    genr = genres;
+    results.map(movie => {
+      refs.title.insertAdjacentHTML(
+        'afterbegin',
+        renderTrendTitle(movie, genr)
+      );
+    });
+  }
+);
 
-createResponseTitleTrend().then(({ data }) => {
-  data.results.map(movie => {
-    refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie, genr));
-  });
-});
+function renderModalMovies() {
+  getIdMovies().then();
+}
 
 // =================================
 // console.log(createResponse);

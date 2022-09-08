@@ -13,6 +13,11 @@
 
 .title--conteiner__list {
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-row-gap: 20px;
+
+
 
     @media screen and (min-width:768px) and (max-width:1279px) {
         display: grid;

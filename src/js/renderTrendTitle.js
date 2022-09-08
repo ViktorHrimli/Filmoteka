@@ -33,7 +33,7 @@ function findIdGenre(Ids, genre) {
   let ganreName = '';
   genre.filter(element => {
     if (element.id === total) {
-      return (ganreName = element.name);
+      return (ganreName += element.name);
     }
   });
   return ganreName;
