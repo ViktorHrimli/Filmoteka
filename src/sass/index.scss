@@ -2,7 +2,12 @@
 @import './common/example';
 @import './common/reset';
 @import './common/base';
-@import "./components/hero";
+@import"./common/mixins";
+@import"./common/extends";
+// 
+@import "./components/hero-home";
+@import "./components/hero-library";
 @import"./components/title";
 @import "./components/footer";
-@import"./common/mixins"
+@import "./components/modal-film";
+@import "./components/title-lib";

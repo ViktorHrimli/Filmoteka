@@ -7,6 +7,7 @@ export function renderTrendTitle(
     vote_average,
     name,
     first_air_date,
+    id,
   },
   genre
 ) {
@@ -15,7 +16,7 @@ export function renderTrendTitle(
   const getOriginalDate = findDate(release_date, first_air_date);
   return `
   <li class="list--title">
-          <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${originalName}" />
+          <img name="${id}"   src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${originalName}" />
         <div class="conteiner--image__title">
           <p class="image--title">
             ${originalName} <br /><span class="image--text">

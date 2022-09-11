@@ -19,13 +19,16 @@ body {
     font-family: Roboto;
     font-size: 12px;
     line-height: 14px;
-    color: #fff;
+    color: black;
     margin: 0 auto;
+    background: rgba(0, 2, 2, 0.941);
 }
 
 .link {
     color: inherit;
 }
+
+
 
 button {
     border: 1px solid #FFFFFF;
@@ -33,7 +36,7 @@ button {
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
-    color: #fff;
+    color: black;
     padding: 14 36 12 36;
     text-transform: uppercase;
 

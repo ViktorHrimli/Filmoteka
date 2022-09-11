@@ -1,10 +1,15 @@
+// import './js/index-lib';
+import addToWatchLocaleStorage from './js/localStor-addToWatch';
 import {
   createResponseTitleTrend,
   getIdsGenres,
   getIdMovies,
 } from './js/mainCreateRes';
+import { renderModal } from './js/renderInfoModal';
 import { renderTrendTitle } from './js/renderTrendTitle';
+import { onGetCard } from './js/onOpenModal';
 import { refs } from './js/refs';
+
 let genr;
 Promise.all([createResponseTitleTrend(), getIdsGenres()]).then(
   ([
@@ -22,11 +27,31 @@ Promise.all([createResponseTitleTrend(), getIdsGenres()]).then(
         renderTrendTitle(movie, genr)
       );
     });
+    onGetCard(results);
   }
 );
-
-function renderModalMovies() {
-  getIdMovies().then();
+export function renderModalMovies(query) {
+  let g = [];
+  getIdMovies(query)
+    .then(({ data }) => {
+      data.genres.filter(item => {
+        g.push(item.name);
+        return g;
+      });
+      refs.backDrop.innerHTML = '';
+      refs.backDrop.insertAdjacentHTML('beforeend', renderModal(data, g));
+      // ===========Loc
+      const year = new Date(data.release_date).getFullYear();
+      const localSave = {
+        filmsName: data.original_title,
+        filmsImg: data.poster_path,
+        filmRelise: year,
+        filmGanre: data.genres,
+        filmRait: data.vote_average,
+      };
+      addToWatchLocaleStorage(localSave, data.original_title);
+    })
+    .catch(console.error);
 }
 
 // =================================

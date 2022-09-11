@@ -11,6 +11,21 @@
     }
 }
 
+.list--title {
+    transform: hover;
+    transition: transform 250ms;
+    box-shadow: 0px 1px 3px rgba(1, 79, 67, 0.12), 0px 1px 1px rgba(80, 80, 80, 0.14),
+        0px 2px 1px rgba(104, 104, 104, 0.2);
+    border-radius: 4px;
+
+    &:hover,
+    &:focus {
+        width: 102%;
+        cursor: pointer;
+        box-shadow: 0px 8px 43px rgba(0, 221, 173, 0.6);
+    }
+}
+
 .title--conteiner__list {
     margin: 0 auto;
     display: grid;
@@ -71,7 +86,7 @@
     .image--title {
         font-weight: bold;
         text-transform: uppercase;
-        color: #000000;
+        color: #fff;
 
         @media screen and (min-width:1279px) {
             font-weight: normal;

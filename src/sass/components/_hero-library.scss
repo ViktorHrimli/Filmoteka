@@ -1,0 +1,113 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteiner-hero {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/Hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 230px;
+    padding: 40px 20px 62px 20px;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)), url(../images/HerTab.jpg);
+        height: 220px;
+        padding: 40px 32px 60px 31px;
+    }
+
+    @media screen and (min-width:1280px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)), url(../images/herDest.jpg);
+        padding: 40px 32px 60px 31px;
+        height: 216px;
+    }
+}
+
+.hero--title {
+    display: none;
+
+    @media screen and (min-width:768px) {
+        display: inline;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 35px;
+        margin-left: 12px;
+    }
+}
+
+.conteiner-links {
+    margin-left: auto;
+}
+
+.icon-hero {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.conteiner-hero_img {
+    display: flex;
+    align-items: center;
+}
+
+.conteiner-list {
+    display: flex;
+    text-transform: uppercase;
+    grid-gap: 39px;
+}
+
+.conteiner-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    grid-gap: 20px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        grid-gap: 32px;
+        margin-top: 40px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 38px;
+        grid-gap: 16px;
+    }
+}
+
+.btn {
+    width: 129px;
+    background-color: rgba($color: #000000, $alpha: 0);
+    color: #fff;
+    line-height: 16px;
+    font-weight: 500;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        width: 152px;
+    }
+
+    @media screen and (min-width:1280px) {
+        width: 148px;
+    }
+}
+
+.active {
+    background: #00835b;
+    color: #fff;
+    outline: none;
+    border: none;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 8px 43px #00835b;
+        cursor: pointer;
+    }
+}
+
+.current {
+    text-decoration: 2px solid red underline;
+}
