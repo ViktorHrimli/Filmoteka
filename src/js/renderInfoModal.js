@@ -59,8 +59,8 @@ export function renderModal(
           <p class="about--text">${overview}</p>
         </div>
         <div class="conteiner--btn">
-          <button class="btn--modal" data-action="add-to-watch">add to Watched</button>
-          <button class="btn--modal">add to queue</button>
+          <button class="btn--modal" name="watched" data-action="add-to-watch">add to Watched</button>
+          <button class="btn--modal" name="queve" data-action="queve">add to queue</button>
         </div>
       </div>
     </div>

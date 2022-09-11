@@ -1,7 +1,7 @@
 import { refs } from './refs';
 const KEY = Object.keys(localStorage);
 function renderWatchList(e) {
-  refs.btnAddWatched.classList.add('active');
+  trrogleClass(e);
   KEY.forEach(key => {
     const getJs = localStorage.getItem(key);
     const parse = JSON.parse(getJs);
@@ -31,6 +31,17 @@ function renderListAddWatch({
     `;
 }
 
+function trrogleClass(e) {
+  if (e.target.name === 'watched') {
+    refs.btnAddWatched.classList.add('active');
+    refs.btnQueve.classList.remove('active');
+  }
+  if (e.target.name === 'queve') {
+    refs.btnQueve.classList.add('active');
+    refs.btnAddWatched.classList.remove('active');
+  }
+}
+
 //
-refs.btnAddWatched.addEventListener('click', renderWatchList, { once: true });
-// refs.btnQueve.addEventListener('click', renderWatchList);
+refs.btnAddWatched.addEventListener('click', renderWatchList);
+refs.btnQueve.addEventListener('click', renderWatchList);
