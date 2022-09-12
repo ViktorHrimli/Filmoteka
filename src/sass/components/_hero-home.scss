@@ -67,3 +67,39 @@
 .current {
     text-decoration: 2px solid red underline;
 }
+
+.conteiner--form {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.input--form {
+    position: relative;
+    width: 280px;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    line-height: 16px;
+    border-bottom: 0.5px solid #8C8C8C;
+    color: #fff;
+
+    &::placeholder {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #8C8C8C;
+    }
+
+}
+
+.serch--icon {
+    position: absolute;
+    display: inline-flex;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    fill: #fff;
+}

@@ -1,5 +1,5 @@
-// import './js/index-lib';
-import addToWatchLocaleStorage from './js/localStor-addToWatch';
+import creteDataLocalSave from './js/library-JS/data_local_storeg';
+import addToWatchLocaleStorage from './js/library-JS/localStor-addToWatch';
 import {
   createResponseTitleTrend,
   getIdsGenres,
@@ -41,15 +41,9 @@ export function renderModalMovies(query) {
       refs.backDrop.innerHTML = '';
       refs.backDrop.insertAdjacentHTML('beforeend', renderModal(data, g));
       // ===========Loc
-      const year = new Date(data.release_date).getFullYear();
-      const localSave = {
-        filmsName: data.original_title,
-        filmsImg: data.poster_path,
-        filmRelise: year,
-        filmGanre: data.genres,
-        filmRait: data.vote_average,
-      };
-      addToWatchLocaleStorage(localSave, data.original_title);
+
+      const localSave = creteDataLocalSave(data);
+      addToWatchLocaleStorage(localSave);
     })
     .catch(console.error);
 }

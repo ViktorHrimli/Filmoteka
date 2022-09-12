@@ -11,8 +11,12 @@ export async function getIdsGenres() {
   return await axios.get(`genre/movie/list?api_key=${KEY}&language=en-US`);
 }
 
-export async function getIdMovies(query) {
+export async function getIdMovies(id) {
   return await axios.get(
-    `movie/${query}?api_key=${KEY}&language=en-US&append_to_response=images`
+    `movie/${id}?api_key=${KEY}&language=en-US&append_to_response=images`
   );
+}
+
+export async function getSearchMovies(query) {
+  return await axios.get();
 }

@@ -1,12 +1,15 @@
-import { refs } from './refs';
-const KEY = Object.keys(localStorage);
+import { refs } from '../refs';
+function renderQueveList(e) {
+  trogle(e.target.name);
+
+  const KEY = Object.keys(localStorage);
+  watf(KEY[0]);
+}
 function renderWatchList(e) {
-  trrogleClass(e);
-  KEY.forEach(key => {
-    const getJs = localStorage.getItem(key);
-    const parse = JSON.parse(getJs);
-    refs.title.insertAdjacentHTML('beforeend', renderListAddWatch(parse));
-  });
+  trogle(e.target.name);
+
+  const KEY = Object.keys(localStorage);
+  watf(KEY[1]);
 }
 
 function renderListAddWatch({
@@ -15,7 +18,9 @@ function renderListAddWatch({
   filmRelise,
   filmGanre,
   filmRait,
+  id,
 }) {
+  console.log(filmGanre);
   return `
   <li class="list--title">
           <img src="https://image.tmdb.org/t/p/w500${filmsImg}" alt="${filmsName}" />
@@ -31,17 +36,26 @@ function renderListAddWatch({
     `;
 }
 
-function trrogleClass(e) {
-  if (e.target.name === 'watched') {
-    refs.btnAddWatched.classList.add('active');
+function trogle(name) {
+  if (name === 'watched') {
     refs.btnQueve.classList.remove('active');
+    refs.btnAddWatched.classList.add('active');
+    return;
   }
-  if (e.target.name === 'queve') {
-    refs.btnQueve.classList.add('active');
+  if (name === 'queve') {
     refs.btnAddWatched.classList.remove('active');
+    refs.btnQueve.classList.add('active');
+    return;
   }
 }
 
+function watf(KEY) {
+  const getJs = localStorage.getItem(KEY);
+  const parse = JSON.parse(getJs);
+  parse.map(arr => {
+    refs.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
+  });
+}
 //
 refs.btnAddWatched.addEventListener('click', renderWatchList);
-refs.btnQueve.addEventListener('click', renderWatchList);
+refs.btnQueve.addEventListener('click', renderQueveList);
