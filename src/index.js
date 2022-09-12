@@ -41,9 +41,7 @@ export function renderModalMovies(query) {
       refs.backDrop.innerHTML = '';
       refs.backDrop.insertAdjacentHTML('beforeend', renderModal(data, g));
       // ===========Loc
-
-      const localSave = creteDataLocalSave(data);
-      addToWatchLocaleStorage(localSave);
+      addToWatchLocaleStorage(creteDataLocalSave(data));
     })
     .catch(console.error);
 }

@@ -1,4 +1,5 @@
-import { refs } from '../refs';
+import { refsLib } from './refs-lib';
+import { onGetCard_lib } from './render_modalLira';
 function renderQueveList(e) {
   trogle(e.target.name);
 
@@ -20,10 +21,9 @@ function renderListAddWatch({
   filmRait,
   id,
 }) {
-  console.log(filmGanre);
   return `
   <li class="list--title">
-          <img src="https://image.tmdb.org/t/p/w500${filmsImg}" alt="${filmsName}" />
+          <img name="${id}" src="https://image.tmdb.org/t/p/w500${filmsImg}" alt="${filmsName}" />
         <div class="conteiner--image__title">
           <p class="image--title">
             ${filmsName} <br /><span class="image--text">
@@ -38,24 +38,26 @@ function renderListAddWatch({
 
 function trogle(name) {
   if (name === 'watched') {
-    refs.btnQueve.classList.remove('active');
-    refs.btnAddWatched.classList.add('active');
+    refsLib.btnQueve.classList.remove('active');
+    refsLib.btnAddWatched.classList.add('active');
     return;
   }
   if (name === 'queve') {
-    refs.btnAddWatched.classList.remove('active');
-    refs.btnQueve.classList.add('active');
+    refsLib.btnAddWatched.classList.remove('active');
+    refsLib.btnQueve.classList.add('active');
     return;
   }
 }
 
-function watf(KEY) {
+export function watf(KEY) {
+  refsLib.titleLib.innerHTML = '';
   const getJs = localStorage.getItem(KEY);
   const parse = JSON.parse(getJs);
   parse.map(arr => {
-    refs.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
+    refsLib.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
+    onGetCard_lib(arr);
   });
 }
 //
-refs.btnAddWatched.addEventListener('click', renderWatchList);
-refs.btnQueve.addEventListener('click', renderQueveList);
+refsLib.btnAddWatched.addEventListener('click', renderWatchList);
+refsLib.btnQueve.addEventListener('click', renderQueveList);

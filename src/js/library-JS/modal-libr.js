@@ -1,4 +1,4 @@
-export function renderModal(
+export function renderModal_Lib(
   {
     poster_path,
     original_title,
@@ -11,7 +11,7 @@ export function renderModal(
 ) {
   return `
   <div class="modal">
-        <svg class="modal--icon"  width="30" height="30" viewBox="0 0 30 30" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <svg class="modal--icon"  width="30" height="30" viewBox="0 0 30 30" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
             <path d="M8 22L22 8" stroke="black" stroke-width="2"/>
         </svg>
@@ -62,6 +62,7 @@ export function renderModal(
         <div class="conteiner--btn">
           <button class="btn--modal" name="watched" data-action="add-to-watch">add to Watched</button>
           <button class="btn--modal" name="queve" data-action="queve">add to queue</button>
+          <button class="btn--modal opaciti" name="remove" data-action="remove">Remove Film</button>
         </div>
       </div>
     </div>
