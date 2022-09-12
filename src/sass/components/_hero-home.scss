@@ -31,7 +31,7 @@
 }
 
 .hero--title {
-    color: #00835b;
+    color: #fff;
     display: none;
 
     @media screen and (min-width:768px) {
@@ -84,6 +84,30 @@
     line-height: 16px;
     border-bottom: 0.5px solid #8C8C8C;
     color: #fff;
+
+    @keyframes glowing {
+        0% {
+
+            color: #39dc029f;
+            box-shadow: 0 0 2px #04e867;
+        }
+
+        50% {
+
+            color: #0ce404d9;
+            box-shadow: 0 0 9px #05e566;
+        }
+
+        100% {
+
+            color: #21fc05;
+            box-shadow: 0 0 2px #01fb6d;
+        }
+    }
+
+    & {
+        animation: glowing 4000ms infinite;
+    }
 
     &::placeholder {
         font-weight: 400;
