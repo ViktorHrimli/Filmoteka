@@ -1,3 +1,4 @@
+import { refs } from '../refs';
 const WATCH = 'watch';
 const QUEVE = 'queve';
 export default function addToWatchLocaleStorage(localSave) {
@@ -9,6 +10,9 @@ export default function addToWatchLocaleStorage(localSave) {
       btnWt.classList.add('active');
       btnQueve.classList.remove('active');
       localStorageSaveData(WATCH, localSave);
+      setTimeout(() => {
+        refs.backDrop.classList.add('is-hidden');
+      }, 300);
     },
     { once: true }
   );
@@ -18,6 +22,9 @@ export default function addToWatchLocaleStorage(localSave) {
       btnQueve.classList.add('active');
       btnWt.classList.remove('active');
       localStorageSaveData(QUEVE, localSave);
+      setTimeout(() => {
+        refs.backDrop.classList.add('is-hidden');
+      }, 300);
     },
     { once: true }
   );

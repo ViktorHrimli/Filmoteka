@@ -5,6 +5,7 @@ import {
   getIdsGenres,
   getIdMovies,
 } from './js/mainCreateRes';
+import './js/library-JS/localStor-addToWatch';
 import { renderModal } from './js/renderInfoModal';
 import { renderTrendTitle } from './js/renderTrendTitle';
 import { onGetCard } from './js/onOpenModal';
