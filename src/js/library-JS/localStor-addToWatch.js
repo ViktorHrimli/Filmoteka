@@ -29,7 +29,7 @@ export default function addToWatchLocaleStorage(localSave) {
     { once: true }
   );
 }
-function localStorageSaveData(KEY, arr) {
+export function localStorageSaveData(KEY, arr) {
   let localSt = [];
   localSt = JSON.parse(localStorage.getItem(KEY)) || [];
   localSt.map(item => item.id).includes(arr.id) ? true : localSt.push(arr);

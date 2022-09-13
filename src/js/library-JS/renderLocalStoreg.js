@@ -1,16 +1,14 @@
+const WATCH = 'watch';
+const QUEVE = 'queve';
 import { refsLib } from './refs-lib';
 import { onGetCard_lib } from './render_modalLira';
 function renderQueveList(e) {
   trogle(e.target.name);
-
-  const KEY = Object.keys(localStorage);
-  watf(KEY[0]);
+  watf(QUEVE);
 }
 function renderWatchList(e) {
   trogle(e.target.name);
-
-  const KEY = Object.keys(localStorage);
-  watf(KEY[1]);
+  watf(WATCH);
 }
 
 function renderListAddWatch({
@@ -64,9 +62,7 @@ function trogle(name) {
 
 export function watf(KEY) {
   refsLib.titleLib.innerHTML = '';
-  const getJs = localStorage.getItem(KEY);
-  const parse = JSON.parse(getJs);
-  parse.map(arr => {
+  JSON.parse(localStorage.getItem(KEY)).map(arr => {
     refsLib.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
     onGetCard_lib(arr);
   });

@@ -8,8 +8,8 @@ export default function onActiveBtnLibr(
       .map(item => item.id)
       .includes(data.id)
   ) {
-    btnQueve.classList.add('active');
-    btnWt.classList.add('opaciti');
+    // btnWt.classList.add('active');
+    btnQueve.classList.add('opaciti');
     btnRemoveCard.classList.remove('opaciti');
     btnRemoveCard.classList.add('remove');
     return;
@@ -19,8 +19,8 @@ export default function onActiveBtnLibr(
       .map(item => item.id)
       .includes(data.id)
   ) {
-    btnQueve.classList.add('opaciti');
-    btnWt.classList.add('active');
+    btnWt.classList.add('opaciti');
+    // btnWt.classList.add('active');
     btnRemoveCard.classList.remove('opaciti');
     btnRemoveCard.classList.add('remove');
     return;

@@ -1,8 +1,4 @@
-import {
-  createRemoveQueve,
-  createRemoveWathc,
-} from './removeCardMyLibr/logicRemoveCard';
-
+import { createRemove } from './removeCardMyLibr/logicRemoveCard';
 import onActiveBtnLibr from './removeCardMyLibr/trogleClass_btn';
 
 export default function removeCardModal(data) {
@@ -12,6 +8,5 @@ export default function removeCardModal(data) {
     btnRemoveCard: document.querySelector('button[data-action="remove"]'),
   };
   onActiveBtnLibr(data, Object.keys(localStorage), refsFunc);
-  createRemoveWathc(refsFunc.btnRemoveCard, data, Object.keys(localStorage));
-  createRemoveQueve(refsFunc.btnRemoveCard, data, Object.keys(localStorage));
+  createRemove(refsFunc.btnRemoveCard, data, Object.keys(localStorage));
 }

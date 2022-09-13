@@ -4,9 +4,13 @@ import '../mainCreateRes';
 import './localStor-addToWatch';
 import './renderLocalStoreg';
 import './render_modalLira';
+import './updateCardMylibr/update_card_lib';
+import './updateCardMylibr/update_button_lib';
+import removeCardModal from './removeCard_lib';
 import { renderModal_Lib } from './modal-libr';
 import { getIdMovies } from '../mainCreateRes';
-import removeCardModal from './removeCard_lib';
+import localSave_lib from './updateCardMylibr/arr_card_update';
+import updateCardModal from './updateCardMylibr/update_card_lib';
 
 export function renderModalMovies_lib(query) {
   let g = [];
@@ -21,6 +25,7 @@ export function renderModalMovies_lib(query) {
         'beforeend',
         renderModal_Lib(data, g)
       );
+      updateCardModal(localSave_lib(data));
       removeCardModal(data);
     })
     .catch(console.error);
