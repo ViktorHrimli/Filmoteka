@@ -216,6 +216,16 @@
   background: none;
   line-height: 16px;
   color: #fff;
+  transition: box-shadow 250ms,
+    background 250ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    border: 1px solid #080100;
+    box-shadow: 0px 8px 43px #00835b;
+    color: #fff;
+  }
 
   @include tablet {
     justify-content: center;
