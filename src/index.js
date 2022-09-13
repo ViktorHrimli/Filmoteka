@@ -10,26 +10,13 @@ import { renderTrendTitle } from './js/renderTrendTitle';
 import { onGetCard } from './js/onOpenModal';
 import { refs } from './js/refs';
 
-let genr;
-Promise.all([createResponseTitleTrend(), getIdsGenres()]).then(
-  ([
-    {
-      data: { results },
-    },
-    {
-      data: { genres },
-    },
-  ]) => {
-    genr = genres;
-    results.map(movie => {
-      refs.title.insertAdjacentHTML(
-        'afterbegin',
-        renderTrendTitle(movie, genr)
-      );
-    });
-    onGetCard(results);
-  }
-);
+createResponseTitleTrend().then(({ data: { results } }) => {
+  results.map(movie => {
+    refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
+  });
+  onGetCard(results);
+});
+
 export function renderModalMovies(query) {
   let g = [];
   getIdMovies(query)

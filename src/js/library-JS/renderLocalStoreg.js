@@ -21,19 +21,32 @@ function renderListAddWatch({
   filmRait,
   id,
 }) {
+  const genre = genrArr(filmGanre);
   return `
   <li class="list--title">
           <img name="${id}" src="https://image.tmdb.org/t/p/w500${filmsImg}" alt="${filmsName}" />
         <div class="conteiner--image__title">
           <p class="image--title">
-            ${filmsName} <br /><span class="image--text">
-              ${filmGanre.name} | ${filmRelise}
+            ${filmsName} <br />
+            <div class="list--ganre_date--conteiner">
+            <span class="image--text">
+              ${genre} | ${filmRelise}
             </span>
             <span class="rait">${filmRait.toFixed(2)}</span>
+            </div>
           </p>
         </div>
       </li>
     `;
+}
+
+function genrArr(genr) {
+  let genrLe = [];
+  genr.map(item => genrLe.push(item.name));
+  if (genrLe.length > 2) {
+    genrLe.splice(2, 3);
+  }
+  return genrLe.join(' ');
 }
 
 function trogle(name) {

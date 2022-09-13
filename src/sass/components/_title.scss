@@ -56,7 +56,23 @@
 
 }
 
+.list--ganre_date--conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 8px;
+}
+
+.element--value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .rait {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 12px;
     line-height: 14px;
     width: 36px;
@@ -66,11 +82,6 @@
     color: #fff;
     padding: 1px 6px;
 
-    @media screen and (min-width:1279px) {
-        width: 40px;
-        height: 20px;
-
-    }
 }
 
 

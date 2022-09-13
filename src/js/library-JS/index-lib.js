@@ -9,7 +9,6 @@ import { getIdMovies } from '../mainCreateRes';
 import removeCardModal from './removeCard_lib';
 
 export function renderModalMovies_lib(query) {
-  console.log(query);
   let g = [];
   getIdMovies(query)
     .then(({ data }) => {

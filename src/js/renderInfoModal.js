@@ -1,3 +1,4 @@
+import { getGenr } from './library-JS/modal-libr';
 export function renderModal(
   {
     poster_path,
@@ -9,6 +10,7 @@ export function renderModal(
   },
   genr
 ) {
+  const g = getGenr(genr);
   return `
   <div class="modal">
         <svg class="modal--icon"  width="30" height="30" viewBox="0 0 30 30" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -49,9 +51,7 @@ export function renderModal(
               <p class="element--value">${original_title}</p>
             </li>
             <li class="list--element">
-              <p class="element--value">${
-                genr.length <= 2 ? [...genr] : [genr[0] + ' ' + genr[1]]
-              }</p>
+              <p class="element--value">${g}</p>
             </li>
           </ul>
         </div>
