@@ -1,7 +1,4 @@
-import {
-  creteDataLocalSave,
-  createDataSeveModalLocalST,
-} from './js/library-JS/data_local_storeg';
+import { creteDataLocalSave } from './js/library-JS/data_local_storeg';
 import Notiflix from 'notiflix';
 import addToWatchLocaleStorage from './js/library-JS/localStor-addToWatch';
 import {
@@ -11,6 +8,7 @@ import {
 } from './js/mainCreateRes';
 import './js/library-JS/localStor-addToWatch';
 import './js/input_create_fetch';
+import './js/pagination_home';
 import { renderModal } from './js/renderInfoModal';
 import { renderTrendTitle } from './js/renderTrendTitle';
 import { onGetCard } from './js/onOpenModal';
@@ -65,6 +63,7 @@ export function getFetchSerch(query) {
     console.log(error);
   }
 }
+
 // =================================
 // console.log(createResponse);
 // function reverseStr(arr1, arr2) {

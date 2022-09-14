@@ -9,4 +9,6 @@ export const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('#search'),
   btnFrom: document.querySelector('#search--btn'),
+  buttonMylibrary: document.querySelector('#library'),
+  btnPagination: document.querySelectorAll('.btn-paginaton'),
 };

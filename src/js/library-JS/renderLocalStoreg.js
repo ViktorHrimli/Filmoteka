@@ -1,7 +1,8 @@
 const WATCH = 'watch';
 const QUEVE = 'queve';
+import { watf } from './logic_render';
 import { refsLib } from './refs-lib';
-import { onGetCard_lib } from './render_modalLira';
+// import { onGetCard_lib } from './render_modalLira';
 function renderQueveList(e) {
   trogle(e.target.name);
   watf(QUEVE);
@@ -11,7 +12,7 @@ function renderWatchList(e) {
   watf(WATCH);
 }
 
-function renderListAddWatch({
+export function renderListAddWatch({
   filmsName,
   filmsImg,
   filmRelise,
@@ -60,13 +61,14 @@ function trogle(name) {
   }
 }
 
-export function watf(KEY) {
-  refsLib.titleLib.innerHTML = '';
-  JSON.parse(localStorage.getItem(KEY)).map(arr => {
-    refsLib.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
-    onGetCard_lib(arr);
-  });
-}
+// export function watf(KEY) {
+//   refsLib.titleLib.innerHTML = '';
+//   JSON.parse(localStorage.getItem(KEY)).map(arr => {
+//     refsLib.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
+//     onGetCard_lib(arr);
+//   });
+// }
+
 //
 refsLib.btnAddWatched.addEventListener('click', renderWatchList);
 refsLib.btnQueve.addEventListener('click', renderQueveList);

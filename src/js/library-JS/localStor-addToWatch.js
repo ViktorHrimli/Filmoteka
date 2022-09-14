@@ -29,6 +29,7 @@ export default function addToWatchLocaleStorage(localSave) {
     { once: true }
   );
 }
+
 export function localStorageSaveData(KEY, arr) {
   let localSt = [];
   localSt = JSON.parse(localStorage.getItem(KEY)) || [];

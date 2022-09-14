@@ -11,7 +11,7 @@ import { renderModal_Lib } from './modal-libr';
 import { getIdMovies } from '../mainCreateRes';
 import localSave_lib from './updateCardMylibr/arr_card_update';
 import updateCardModal from './updateCardMylibr/update_card_lib';
-
+import { onClickMyLibraryBtn } from './logic_render';
 export function renderModalMovies_lib(query) {
   let g = [];
   getIdMovies(query)
@@ -30,3 +30,5 @@ export function renderModalMovies_lib(query) {
     })
     .catch(console.error);
 }
+
+onClickMyLibraryBtn('watch');

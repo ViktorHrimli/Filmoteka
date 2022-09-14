@@ -1,6 +1,6 @@
 import { refsLib } from './refs-lib';
 import { renderModalMovies_lib } from './index-lib';
-export function onGetCard_lib(e) {
+export function onGetCard_lib() {
   for (let card of refsLib.titleLib.children) {
     card.addEventListener('click', onOpenModal_lib);
   }

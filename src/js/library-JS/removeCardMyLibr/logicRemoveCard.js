@@ -1,5 +1,6 @@
+import { watf } from '../logic_render';
 import { refsLib } from '../refs-lib';
-import { watf } from '../renderLocalStoreg';
+// import { watf } from '../renderLocalStoreg';watf
 export function createRemove(listener, data, KEY) {
   listener.addEventListener('click', e => {
     if (

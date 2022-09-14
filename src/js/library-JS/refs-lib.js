@@ -6,4 +6,5 @@ export const refsLib = {
     'button[data-action="add-to-watched-lib"]'
   ),
   btnQueve: document.querySelector('button[data-action="queve-lib"]'),
+  poster: document.querySelector('#poster'),
 };
