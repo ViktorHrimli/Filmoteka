@@ -85,6 +85,10 @@
     border-bottom: 0.5px solid #8C8C8C;
     color: #fff;
 
+    &:focus::placeholder {
+        opacity: 0;
+    }
+
     @keyframes glowing {
         0% {
 
@@ -118,12 +122,23 @@
 
 }
 
-.serch--icon {
+.btn--form {
     position: absolute;
-    display: inline-flex;
     top: 0;
     right: 0;
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.serch--icon {
+    display: inline-flex;
     width: 12px;
     height: 12px;
-    fill: #fff;
+    fill: inherit;
 }

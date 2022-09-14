@@ -7,9 +7,15 @@ export function createRemove(listener, data, KEY) {
         .map(item => item.id)
         .includes(data.id)
     ) {
-      wtf(KEY[0], data);
+      return wtf(KEY[0], data);
     }
-    wtf(KEY[1], data);
+    if (
+      JSON.parse(localStorage.getItem(KEY[1]))
+        .map(item => item.id)
+        .includes(data.id)
+    ) {
+      return wtf(KEY[1], data);
+    }
   });
 }
 

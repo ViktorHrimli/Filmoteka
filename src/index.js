@@ -2,8 +2,7 @@ import {
   creteDataLocalSave,
   createDataSeveModalLocalST,
 } from './js/library-JS/data_local_storeg';
-import lodash from 'lodash.debounce';
-
+import Notiflix from 'notiflix';
 import addToWatchLocaleStorage from './js/library-JS/localStor-addToWatch';
 import {
   createResponseTitleTrend,
@@ -17,16 +16,20 @@ import { renderTrendTitle } from './js/renderTrendTitle';
 import { onGetCard } from './js/onOpenModal';
 import { refs } from './js/refs';
 const PAGE = 1;
-createResponseTitleTrend(PAGE).then(({ data: { results } }) => {
-  try {
-    results.map(movie => {
-      refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
-    });
-    onGetCard(results);
-  } catch (error) {
-    console.log(error);
-  }
-});
+export function creteTrendRender() {
+  refs.title.innerHTML = '';
+  createResponseTitleTrend(PAGE).then(({ data: { results } }) => {
+    try {
+      results.map(movie => {
+        refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
+      });
+      onGetCard();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
+creteTrendRender();
 
 export function renderModalMovies(query, PAGE) {
   try {
@@ -47,8 +50,16 @@ export function renderModalMovies(query, PAGE) {
 }
 export function getFetchSerch(query) {
   try {
-    getSearchMovies(query, PAGE).then(data => {
-      console.log(data);
+    refs.title.innerHTML = '';
+    getSearchMovies(query, PAGE).then(({ data: { results } }) => {
+      if (results.length === 0) {
+        creteTrendRender();
+        return Notiflix.Notify.failure('Not a correct request');
+      }
+      results.map(movie => {
+        refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
+      });
+      onGetCard();
     });
   } catch (error) {
     console.log(error);

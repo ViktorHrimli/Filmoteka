@@ -1,19 +1,21 @@
+import Notiflix from 'notiflix';
 import { refs } from './refs';
-import { getFetchSerch } from '..';
-import lodash from 'lodash.debounce';
-refs.input.addEventListener('input', lodash(createQuery, 500));
+import { getFetchSerch, creteTrendRender } from '..';
 
-function createQuery(e) {
-  let query = e.target.value;
-  if (query !== '') getFetchSerch(query);
+Notiflix.Notify.init({});
+function createSubmit(e) {
+  e.preventDefault();
+  let query = e.target.input.value;
+  if (query === '') {
+    creteTrendRender();
+    return Notiflix.Notify.failure(
+      'Search result not successful. Enter the correct movie name and '
+    );
+  }
+  if (query.length <= 2) {
+    return Notiflix.Notify.warning('Request must be more than 2 characters');
+  }
+  getFetchSerch(query);
 }
 
-// function greet(clientName) {
-//   return `${clientName}, добро пожаловать в «${this.service}».`;
-// }
-
-// const steam = {
-//   service: "Steam",
-// };
-// const steamGreeter = greet.bind(steam);
-// steamGreeter("Манго"); // "Манго, добро пожаловать в «Steam»."
+refs.form.addEventListener('submit', createSubmit);

@@ -1,12 +1,13 @@
 import { refs } from './refs';
 import { renderModalMovies } from '../index';
-export function onGetCard(e) {
+export function onGetCard() {
   for (let card of refs.title.children) {
     card.addEventListener('click', onOpenModal);
   }
 }
 
 export function onOpenModal(e) {
+  refs.backDrop.innerHTML = '';
   refs.backDrop.classList.remove('is-hidden');
   refs.backDrop.addEventListener('click', onClickClose);
   if (!refs.backDrop.classList.contains('is-hidden')) {

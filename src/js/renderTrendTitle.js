@@ -20,7 +20,7 @@ export function renderTrendTitle({
             ${originalName} <br />
             <div class="list--ganre_date--conteiner">
             <span class="image--text">
-              ${getGenre} | ${getOriginalDate.slice(0, 4)}
+              ${getGenre} | ${getOriginalDate}
             </span>
             <span class="rait">${vote_average.toFixed(2)}</span>
             </div>
@@ -56,7 +56,7 @@ function findTruName(name, title) {
 function findDate(releaseDate, airDate) {
   let originalDate = '';
   if (releaseDate) {
-    return (originalDate = releaseDate);
+    return (originalDate = releaseDate.slice(0, 4));
   }
   if (airDate) {
     return (originalDate = airDate);
