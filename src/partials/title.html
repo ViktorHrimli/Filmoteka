@@ -3,22 +3,28 @@
     <ul class="title--conteiner__list" id="titel-list"></ul>
   </div>
   <div class="conteiner--btn__pagination">
-    <button class="btn-paginaton scope" id="decrement">
+    <button type="button" class="btn-paginaton scope" id="decrement">
       <svg class="icon-btn">
         <use xlink:href="./images/sprite.svg#arrow-right"></use>
       </svg>
     </button>
+    <button type="button" class="btn-paginaton portal hiden--btn" id="first">
+      ...
+    </button>
+    <div id="pag" class="pagination"></div>
+    <button type="button" class="btn-paginaton portal" id="last">...</button>
 
-    <button class="btn-paginaton enable">1</button>
-    <button class="btn-paginaton">2</button>
-    <button class="btn-paginaton">3</button>
-    <button class="btn-paginaton">4</button>
-    <button class="btn-paginaton">5</button>
-
-    <button class="btn-paginaton scope" id="increment">
+    <button type="button" class="btn-paginaton scope" id="increment">
       <svg class="icon-btn">
         <use xlink:href="./images/sprite.svg#arrow-left"></use>
       </svg>
     </button>
   </div>
 </main>
+
+<!-- <div class="conteiner__render--btn" id="bnt--render"></div>
+<button class="btn-paginaton enable count">1</button>
+<button class="btn-paginaton count">2</button>
+<button class="btn-paginaton count">3</button>
+<button class="btn-paginaton count">4</button>
+<button class="btn-paginaton count">5</button> -->

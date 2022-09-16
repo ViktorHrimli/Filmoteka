@@ -121,6 +121,8 @@
     display: flex;
     justify-content: center;
     margin: 40px 0 40px;
+    grid-gap: 8px;
+    color: #fff;
 
     @media screen and (min-width:768px) and (max-width:1279px) {
         margin: 60px 0 60px;
@@ -135,7 +137,15 @@
     border: none;
     padding: 0;
     background: none;
-    color: black;
+    color: white;
+
+}
+
+.portal {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .scope {
@@ -151,6 +161,10 @@
         height: 16px;
         margin: 0 auto;
     }
+}
+
+.hiden--btn {
+    display: none;
 }
 
 .enable {

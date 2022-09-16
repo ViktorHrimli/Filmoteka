@@ -10,5 +10,9 @@ export const refs = {
   input: document.querySelector('#search'),
   btnFrom: document.querySelector('#search--btn'),
   buttonMylibrary: document.querySelector('#library'),
-  btnPagination: document.querySelectorAll('.btn-paginaton'),
+  conteinerBtn: document.querySelector('#pag'),
+  firstList: document.querySelector('#first'),
+  lastList: document.querySelector('#last'),
+  decrement: document.querySelector('#decrement'),
+  increment: document.querySelector('#increment'),
 };

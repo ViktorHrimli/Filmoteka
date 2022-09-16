@@ -1,6 +1,8 @@
 import { creteDataLocalSave } from './js/library-JS/data_local_storeg';
 import Notiflix from 'notiflix';
 import addToWatchLocaleStorage from './js/library-JS/localStor-addToWatch';
+import './js/page--scope';
+import { renderButton } from './js/pagination_home';
 import {
   createResponseTitleTrend,
   getSearchMovies,
@@ -9,27 +11,43 @@ import {
 import './js/library-JS/localStor-addToWatch';
 import './js/input_create_fetch';
 import './js/pagination_home';
+import { smoothScroll } from './js/scroll--smooth';
 import { renderModal } from './js/renderInfoModal';
 import { renderTrendTitle } from './js/renderTrendTitle';
 import { onGetCard } from './js/onOpenModal';
 import { refs } from './js/refs';
-const PAGE = 1;
-export function creteTrendRender() {
+let PAGE = 1;
+
+export function creteTrendRender(page) {
   refs.title.innerHTML = '';
-  createResponseTitleTrend(PAGE).then(({ data: { results } }) => {
-    try {
-      results.map(movie => {
-        refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
-      });
-      onGetCard();
-    } catch (error) {
-      console.log(error);
+  refs.conteinerBtn.innerHTML = '';
+  if (!page) {
+    page = PAGE;
+  }
+  localStorage.setItem('page', JSON.stringify(page));
+  createResponseTitleTrend(page).then(
+    ({ data: { page, total_pages, results } }) => {
+      try {
+        results.map(movie => {
+          refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
+        });
+        onGetCard();
+        renderButton(page, total_pages);
+        smoothScroll();
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+      } catch (error) {
+        console.log(error.mesage);
+      }
     }
-  });
+  );
 }
 creteTrendRender();
 
-export function renderModalMovies(query, PAGE) {
+export function renderModalMovies(query) {
   try {
     let g = [];
     getIdMovies(query).then(({ data }) => {
@@ -46,24 +64,31 @@ export function renderModalMovies(query, PAGE) {
     console.log(error);
   }
 }
-export function getFetchSerch(query) {
+export function getFetchSerch(page, query) {
   try {
+    if (!page) {
+      page = PAGE;
+    }
     refs.title.innerHTML = '';
-    getSearchMovies(query, PAGE).then(({ data: { results } }) => {
-      if (results.length === 0) {
-        creteTrendRender();
-        return Notiflix.Notify.failure('Not a correct request');
+    getSearchMovies(query, page).then(
+      ({ data: { page, total_pages, results } }) => {
+        if (results.length === 0) {
+          creteTrendRender();
+          return Notiflix.Notify.failure('Not a correct request');
+        }
+        results.map(movie => {
+          refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
+        });
+        onGetCard();
+        renderButton(page, total_pages);
       }
-      results.map(movie => {
-        refs.title.insertAdjacentHTML('afterbegin', renderTrendTitle(movie));
-      });
-      onGetCard();
-    });
+    );
   } catch (error) {
     console.log(error);
   }
 }
 
+// function onClickFirstPage (totalPages)
 // =================================
 // console.log(createResponse);
 // function reverseStr(arr1, arr2) {
