@@ -1,7 +1,6 @@
 import { refs } from './refs';
 import { creteTrendRender, getFetchSerch } from '..';
 import { createLastFirstPage } from './pagination--last--first';
-import { smoothScroll } from './scroll--smooth';
 
 export function renderButton(page, totalPages) {
   const renderBtn = Array(totalPages)
@@ -9,7 +8,7 @@ export function renderButton(page, totalPages) {
     .map(
       (_, ind) =>
         `
-         <button type="button" class="btn-paginaton count" data-page=${ind}>${ind}</button>
+        <button type="button" class="btn-paginaton count" data-page=${ind}>${ind}</button>
         `
     );
   createLastFirstPage(totalPages);
@@ -17,25 +16,28 @@ export function renderButton(page, totalPages) {
 }
 
 function createResponsePaginationBtn(arr, page) {
-  let num = 0;
   if (page > 4) {
-    num = page - 3;
-    const wtf = arr.splice(num, 7).join(' ');
-    refs.conteinerBtn.insertAdjacentHTML('afterbegin', wtf);
-    refs.conteinerBtn.children[3].classList.add('enable');
-    refs.firstList.classList.remove('hiden--btn');
+    spliceArrButtons(arr, page);
   } else {
-    refs.firstList.classList.add('hiden--btn');
-    const wtf = arr.splice(1, 7).join(' ');
-    refs.conteinerBtn.insertAdjacentHTML('afterbegin', wtf);
-    refs.conteinerBtn.children[page - 1].classList.add('enable');
+    firsButtonsSplice(arr, page);
   }
   addListenerForBtnPag();
-  smoothScroll();
-  window.scrollBy({
-    top: 200,
-    behavior: 'smooth',
-  });
+}
+
+function spliceArrButtons(arr, page) {
+  let num = 0;
+  num = page - 3;
+  const wtf = arr.splice(num, 7).join(' ');
+  refs.conteinerBtn.insertAdjacentHTML('afterbegin', wtf);
+  refs.conteinerBtn.children[3].classList.add('enable');
+  refs.firstList.classList.remove('hiden--btn');
+}
+
+function firsButtonsSplice(arr, page) {
+  refs.firstList.classList.add('hiden--btn');
+  const wtf = arr.splice(1, 7).join(' ');
+  refs.conteinerBtn.insertAdjacentHTML('afterbegin', wtf);
+  refs.conteinerBtn.children[page - 1].classList.add('enable');
 }
 
 function addListenerForBtnPag() {
@@ -46,11 +48,6 @@ function addListenerForBtnPag() {
 }
 
 function onClickBtnPagination(e) {
-  smoothScroll();
-  window.scrollBy({
-    top: 200,
-    behavior: 'smooth',
-  });
   refs.conteinerBtn.innerHTML = '';
   const { page } = e.target.dataset;
   if (JSON.parse(localStorage.getItem('query')).length > 2)

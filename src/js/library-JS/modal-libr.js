@@ -61,7 +61,8 @@ export function renderModal_Lib(
         <div class="conteiner--btn">
           <button class="btn--modal" name="watched" data-action="add-to-watch">add to Watched</button>
           <button class="btn--modal" name="queve" data-action="queve">add to queue</button>
-          <button class="btn--modal opaciti" name="remove" data-action="remove">Remove Film</button>
+          <button class="btn--modal opaciti" name="remove" data-action="removeWatch">Remove Film</button>
+          <button class="btn--modal opaciti" name="remove" data-action="removeQueve">Remove Film</button>
         </div>
       </div>
     </div>

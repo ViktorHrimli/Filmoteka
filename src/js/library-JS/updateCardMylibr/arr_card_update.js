@@ -1,4 +1,4 @@
-export default function localSave_lib(data) {
+export function localSave_lib(data) {
   const year = new Date(data.release_date).getFullYear();
   const localSave = {
     filmsName: data.original_title,

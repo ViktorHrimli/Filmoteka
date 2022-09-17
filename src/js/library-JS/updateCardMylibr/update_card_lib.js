@@ -1,6 +1,6 @@
 import { updateToQueve, updateToWatch } from './update_button_lib';
 
-export default function updateCardModal(data) {
+export function updateCardModal(data) {
   const refsFunc = {
     btnWt: document.querySelector('button[data-action="add-to-watch"]'),
     btnQueve: document.querySelector('button[data-action="queve"]'),

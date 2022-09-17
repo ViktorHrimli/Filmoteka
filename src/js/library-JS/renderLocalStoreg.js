@@ -2,12 +2,14 @@ const WATCH = 'watch';
 const QUEVE = 'queve';
 import { watf } from './logic_render';
 import { refsLib } from './refs-lib';
-// import { onGetCard_lib } from './render_modalLira';
+
 function renderQueveList(e) {
+  localStorage.setItem('find-tru-page', JSON.stringify('queve'));
   trogle(e.target.name);
   watf(QUEVE);
 }
 function renderWatchList(e) {
+  localStorage.setItem('find-tru-page', JSON.stringify('watch'));
   trogle(e.target.name);
   watf(WATCH);
 }
@@ -60,14 +62,6 @@ function trogle(name) {
     return;
   }
 }
-
-// export function watf(KEY) {
-//   refsLib.titleLib.innerHTML = '';
-//   JSON.parse(localStorage.getItem(KEY)).map(arr => {
-//     refsLib.titleLib.insertAdjacentHTML('beforeend', renderListAddWatch(arr));
-//     onGetCard_lib(arr);
-//   });
-// }
 
 //
 refsLib.btnAddWatched.addEventListener('click', renderWatchList);

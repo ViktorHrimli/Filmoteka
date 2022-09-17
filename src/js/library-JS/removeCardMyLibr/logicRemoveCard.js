@@ -1,28 +1,20 @@
 import { watf } from '../logic_render';
 import { refsLib } from '../refs-lib';
-// import { watf } from '../renderLocalStoreg';watf
-export function createRemove(listener, data, KEY) {
-  listener.addEventListener('click', e => {
-    if (
-      JSON.parse(localStorage.getItem(KEY[0]))
-        .map(item => item.id)
-        .includes(data.id)
-    ) {
-      return wtf(KEY[0], data);
-    }
-    if (
-      JSON.parse(localStorage.getItem(KEY[1]))
-        .map(item => item.id)
-        .includes(data.id)
-    ) {
-      return wtf(KEY[1], data);
-    }
+import { removeWatch, removeQueve } from './remove_card';
+export function createRemove(listenerWatch, listenerQueve, data) {
+  listenerWatch.addEventListener('click', e => {
+    console.log(e.target);
+    removeWatch(data);
+  });
+  listenerQueve.addEventListener('click', e => {
+    console.log(e.target);
+    removeQueve(data);
   });
 }
 
-function wtf(KEY, data) {
+export function findRemoveCard(KEY, data) {
   let totalFilm = [];
-
+  console.log(KEY);
   JSON.parse(localStorage.getItem(KEY)).filter(item => {
     if (item.id !== data.id) {
       return totalFilm.push(item);
