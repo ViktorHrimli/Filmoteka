@@ -18,6 +18,7 @@ export function creteTrendRender(page) {
   if (!page) {
     page = PAGE;
   }
+  localStorage.setItem('query', JSON.stringify(''));
   localStorage.setItem('page', JSON.stringify(page));
   fetchTrendRender(page);
 }

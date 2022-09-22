@@ -85,8 +85,18 @@
     border-bottom: 0.5px solid #8C8C8C;
     color: #fff;
 
+
+
     &:focus::placeholder {
         opacity: 0;
+    }
+
+    @include tablet {
+        width: 336px;
+    }
+
+    @include desktop {
+        width: 394px;
     }
 
     @keyframes glowing {
